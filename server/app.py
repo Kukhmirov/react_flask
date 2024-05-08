@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:32167@localhost:5455/postgres'
 db = SQLAlchemy(app)
+CORS(app)
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
